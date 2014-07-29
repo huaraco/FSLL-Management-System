@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="fsll_coreModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="int" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="lastloginon" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_core.vmember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vmember">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="MembershipNo" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_core.vmemberingroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vmemberingroup">
+          <Key>
+            <PropertyRef Name="ChurchMemberID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="ChurchMemberID" Type="int" Nullable="false" />
+          <Property Name="GroupID" Type="int" Nullable="false" />
+          <Property Name="JointDate" Type="datetime" Precision="0" />
+          <Property Name="RolesID" Type="varchar" MaxLength="15" />
+          <Property Name="Roles" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_core.vroles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vroles">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MembershipRole" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="MembershipRole" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="fsll_coreModelStoreContainer">
+          <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="fsll_core" store:Type="Tables" />
+          <EntitySet Name="vmember" EntityType="Self.vmember" store:Type="Views" store:Schema="fsll_core">
+            <DefiningQuery>SELECT
+`vmember`.`ID`, 
+`vmember`.`Name`, 
+`vmember`.`Email`, 
+`vmember`.`MembershipNo`
+FROM `vmember` AS `vmember`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vmemberingroup" EntityType="Self.vmemberingroup" store:Type="Views" store:Schema="fsll_core">
+            <DefiningQuery>SELECT
+`vmemberingroup`.`ChurchMemberID`, 
+`vmemberingroup`.`GroupID`, 
+`vmemberingroup`.`JointDate`, 
+`vmemberingroup`.`RolesID`, 
+`vmemberingroup`.`Roles`
+FROM `vmemberingroup` AS `vmemberingroup`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vroles" EntityType="Self.vroles" store:Type="Views" store:Schema="fsll_core">
+            <DefiningQuery>SELECT
+`vroles`.`ID`, 
+`vroles`.`MembershipRole`, 
+`vroles`.`Description`
+FROM `vroles` AS `vroles`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fsll_coreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="memberid" />
+          </Key>
+          <Property Name="memberid" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastloginon" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="vmember">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MembershipNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vrole">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MembershipRole" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="MembershipRole" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="fsll_coreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="userlogins" EntityType="Self.userlogin" />
+          <EntitySet Name="vmembers" EntityType="Self.vmember" />
+          <EntitySet Name="vroles" EntityType="Self.vrole" />
+          <EntitySet Name="vmemberingroups" EntityType="fsll_coreModel.vmemberingroup" />
+        </EntityContainer>
+        <EntityType Name="vmemberingroup">
+          <Key>
+            <PropertyRef Name="ChurchMemberID" />
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="ChurchMemberID" Type="Int32" Nullable="false" />
+          <Property Name="GroupID" Type="Int32" Nullable="false" />
+          <Property Name="JointDate" Type="DateTime" />
+          <Property Name="RolesID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Roles" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fsll_coreModelStoreContainer" CdmEntityContainer="fsll_coreEntities">
+          <EntitySetMapping Name="userlogins">
+            <EntityTypeMapping TypeName="fsll_coreModel.userlogin">
+              <MappingFragment StoreEntitySet="userlogin">
+                <ScalarProperty Name="memberid" ColumnName="memberid" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="lastloginon" ColumnName="lastloginon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vmembers">
+            <EntityTypeMapping TypeName="fsll_coreModel.vmember">
+              <MappingFragment StoreEntitySet="vmember">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MembershipNo" ColumnName="MembershipNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vroles">
+            <EntityTypeMapping TypeName="fsll_coreModel.vrole">
+              <MappingFragment StoreEntitySet="vroles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MembershipRole" ColumnName="MembershipRole" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vmemberingroups">
+            <EntityTypeMapping TypeName="fsll_coreModel.vmemberingroup">
+              <MappingFragment StoreEntitySet="vmemberingroup">
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
+                <ScalarProperty Name="RolesID" ColumnName="RolesID" />
+                <ScalarProperty Name="JointDate" ColumnName="JointDate" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="ChurchMemberID" ColumnName="ChurchMemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

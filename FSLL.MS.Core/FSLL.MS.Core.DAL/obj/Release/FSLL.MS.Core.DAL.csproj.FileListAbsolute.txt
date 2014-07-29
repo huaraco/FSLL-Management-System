@@ -1,0 +1,12 @@
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\FSLL.MS.Core.DAL.dll.config
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\FSLL.MS.Core.DAL.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\FSLL.MS.Core.DAL.pdb
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\EntityFramework.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\EntityFramework.SqlServer.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\MySql.Data.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\mysql.data.entity.EF6.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\EntityFramework.xml
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Release\EntityFramework.SqlServer.xml
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Release\FSLL.MS.Core.DAL.csprojResolveAssemblyReference.cache
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Release\FSLL.MS.Core.DAL.dll
+D:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Release\FSLL.MS.Core.DAL.pdb

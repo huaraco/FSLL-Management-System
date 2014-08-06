@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\360云盘\WorkStation\Church\Application\FSLLCore\FSLL.MS.Core\FSLL.MS.Core.DAL\CoreModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\CoreModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

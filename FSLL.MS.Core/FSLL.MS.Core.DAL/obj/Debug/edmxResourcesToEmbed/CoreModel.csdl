@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="fsll_coreModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<Schema Namespace="fsll_coreModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
   <EntityType Name="userlogin">
     <Key>
       <PropertyRef Name="memberid" />
@@ -26,7 +26,7 @@
     <Property Name="MembershipRole" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="fsll_coreEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="fsll_coreEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
     <EntitySet Name="userlogins" EntityType="Self.userlogin" />
     <EntitySet Name="vmembers" EntityType="Self.vmember" />
     <EntitySet Name="vroles" EntityType="Self.vrole" />
@@ -36,11 +36,16 @@
     <Key>
       <PropertyRef Name="ChurchMemberID" />
       <PropertyRef Name="GroupID" />
+      <PropertyRef Name="GroupTypeID" />
+      <PropertyRef Name="GroupType" />
     </Key>
     <Property Name="ChurchMemberID" Type="Int32" Nullable="false" />
     <Property Name="GroupID" Type="Int32" Nullable="false" />
     <Property Name="JointDate" Type="DateTime" />
     <Property Name="RolesID" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
     <Property Name="Roles" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="GroupTypeID" Type="Int32" Nullable="false" />
+    <Property Name="GroupType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

@@ -1,0 +1,15 @@
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\FSLL.MS.Feedback.Common.dll.config
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\FSLL.MS.Feedback.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\FSLL.MS.Feedback.Common.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\Newtonsoft.Json.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\System.Net.Http.Formatting.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\System.Web.Http.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\WebApiProxy.Core.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\WebApiProxy.Server.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\Newtonsoft.Json.xml
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\System.Net.Http.Formatting.xml
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\bin\Debug\System.Web.Http.xml
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\obj\Debug\FSLL.MS.Feedback.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\obj\Debug\FSLL.MS.Feedback.Common.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\obj\Debug\WebApiProxySource.cs
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Feedback\FSLL.MS.Feedback.Common\obj\Debug\FSLL.MS.Feedback.Common.csprojResolveAssemblyReference.cache

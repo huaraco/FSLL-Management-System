@@ -31,3 +31,5 @@ D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\bin\De
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\obj\Debug\FSLL.MS.Core.Service.csprojResolveAssemblyReference.cache
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\obj\Debug\FSLL.MS.Core.Service.dll
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\obj\Debug\FSLL.MS.Core.Service.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\bin\Debug\FSLL.MS.Core.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Service\bin\Debug\FSLL.MS.Core.Common.pdb

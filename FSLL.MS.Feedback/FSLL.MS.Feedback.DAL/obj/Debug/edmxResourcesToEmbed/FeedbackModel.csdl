@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fsll_feedbackModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="fsll_feedbackEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="app_requirementlist" EntityType="fsll_feedbackModel.app_requirementlist" />
+    <EntitySet Name="app_requirementtype" EntityType="fsll_feedbackModel.app_requirementtype" />
+    <EntitySet Name="footprints" EntityType="fsll_feedbackModel.footprint" />
+    <EntitySet Name="requirements" EntityType="fsll_feedbackModel.requirement" />
+    <EntitySet Name="serveevents" EntityType="fsll_feedbackModel.serveevent" />
+    <EntitySet Name="serveeventfeedbacks" EntityType="fsll_feedbackModel.serveeventfeedback" />
+    <EntitySet Name="serveeventfroms" EntityType="fsll_feedbackModel.serveeventfrom" />
+    <EntitySet Name="serveeventrequirements" EntityType="fsll_feedbackModel.serveeventrequirement" />
+    <EntitySet Name="vappevents" EntityType="fsll_feedbackModel.vappevent" />
+    <EntitySet Name="vappeventconfigs" EntityType="fsll_feedbackModel.vappeventconfig" />
+  </EntityContainer>
+  <EntityType Name="app_requirementlist">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RequirementTypeID" Type="Int32" />
+    <Property Name="RequirementTypeName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="app_requirementtype">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RequirementType" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RequirementType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ParentRequirementID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="footprint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="ActionDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="requirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="RequirementTypeName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" />
+    <Property Name="EndDate" Type="DateTime" />
+    <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="IsPrivate" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="serveevent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="StartDateTime" Type="DateTime" />
+    <Property Name="EndDateTime" Type="DateTime" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="serveeventfeedback">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServeEventID" Type="Int32" />
+    <Property Name="TargetMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="TargetMemberID" Type="Int32" />
+    <Property Name="FromMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="FromMemberID" Type="Int32" />
+    <Property Name="Feedback" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="serveeventfrom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServeEventID" Type="Int32" />
+    <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="serveeventrequirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServeEventID" Type="Int32" />
+    <Property Name="TargetMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="TargetMemberID" Type="Int32" />
+    <Property Name="Requirement" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="RequirementDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RequirementID" Type="Int32" />
+    <Property Name="TargetMemberGroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="TargetMemberGroupID" Type="Int32" />
+    <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="vappevent">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EventTitle" />
+      <PropertyRef Name="EventDate" />
+      <PropertyRef Name="IsRepeatable" />
+      <PropertyRef Name="RepeatInterval" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="EventTitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="StartTime" Type="Time" />
+    <Property Name="EndTime" Type="Time" />
+    <Property Name="EventDate" Type="DateTime" Nullable="false" />
+    <Property Name="IsRepeatable" Type="Boolean" Nullable="false" />
+    <Property Name="RepeatInterval" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="vappeventconfig">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="AppEventID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Value" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ValueType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="AppEventID" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

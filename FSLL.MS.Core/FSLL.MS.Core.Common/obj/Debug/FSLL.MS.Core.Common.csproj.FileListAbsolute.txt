@@ -1,0 +1,5 @@
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Common\bin\Debug\FSLL.MS.Core.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Common\bin\Debug\FSLL.MS.Core.Common.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Common\obj\Debug\FSLL.MS.Core.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Common\obj\Debug\FSLL.MS.Core.Common.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.Common\obj\Debug\FSLL.MS.Core.Common.csprojResolveAssemblyReference.cache

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fsll_feedbackModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="app_requirementlist">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="RequirementTypeID" Type="int" />
+    <Property Name="RequirementTypeName" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="app_requirementtype">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RequirementType" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="RequirementType" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="ParentRequirementID" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="footprint">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionType" Type="varchar" MaxLength="45" />
+    <Property Name="Action" Type="varchar" MaxLength="500" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="MemberName" Type="varchar" MaxLength="45" />
+    <Property Name="ActionDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="requirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="45" />
+    <Property Name="RequirementTypeName" Type="varchar" MaxLength="45" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="Remark" Type="varchar" MaxLength="45" />
+    <Property Name="MemberName" Type="varchar" MaxLength="45" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="GroupName" Type="varchar" MaxLength="45" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+    <Property Name="IsPrivate" Type="bit" />
+  </EntityType>
+  <EntityType Name="serveevent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="45" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="StartDateTime" Type="datetime" Precision="0" />
+    <Property Name="EndDateTime" Type="datetime" Precision="0" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="serveeventfeedback">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServeEventID" Type="int" />
+    <Property Name="TargetMemberName" Type="varchar" MaxLength="45" />
+    <Property Name="TargetMemberID" Type="int" />
+    <Property Name="FromMemberName" Type="varchar" MaxLength="45" />
+    <Property Name="FromMemberID" Type="int" />
+    <Property Name="Feedback" Type="varchar" MaxLength="500" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="serveeventfrom">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServeEventID" Type="int" />
+    <Property Name="MemberName" Type="varchar" MaxLength="45" />
+    <Property Name="MemberID" Type="int" />
+    <Property Name="GroupName" Type="varchar" MaxLength="45" />
+    <Property Name="GroupID" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <EntityType Name="serveeventrequirement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ServeEventID" Type="int" />
+    <Property Name="TargetMemberName" Type="varchar" MaxLength="45" />
+    <Property Name="TargetMemberID" Type="int" />
+    <Property Name="Requirement" Type="varchar" MaxLength="45" />
+    <Property Name="RequirementDescription" Type="varchar" MaxLength="500" />
+    <Property Name="RequirementID" Type="int" />
+    <Property Name="TargetMemberGroupName" Type="varchar" MaxLength="45" />
+    <Property Name="TargetMemberGroupID" Type="int" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+    <Property Name="CreatedDate" Type="datetime" Precision="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_feedback.vappeventconfig' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vappeventconfig">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="AppEventID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="45" />
+    <Property Name="Description" Type="varchar" MaxLength="200" />
+    <Property Name="ValueType" Type="varchar" MaxLength="45" />
+    <Property Name="AppEventID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_feedback.vappevents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vappevents">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="EventTitle" />
+      <PropertyRef Name="EventDate" />
+      <PropertyRef Name="IsRepeatable" />
+      <PropertyRef Name="RepeatInterval" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="EventTitle" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="StartTime" Type="time" Precision="0" />
+    <Property Name="EndTime" Type="time" Precision="0" />
+    <Property Name="EventDate" Type="date" Nullable="false" />
+    <Property Name="IsRepeatable" Type="bit" Nullable="false" />
+    <Property Name="RepeatInterval" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityContainer Name="fsll_feedbackModelStoreContainer">
+    <EntitySet Name="app_requirementlist" EntityType="Self.app_requirementlist" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="app_requirementtype" EntityType="Self.app_requirementtype" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="footprint" EntityType="Self.footprint" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="requirement" EntityType="Self.requirement" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="serveevent" EntityType="Self.serveevent" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="serveeventfeedback" EntityType="Self.serveeventfeedback" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="serveeventfrom" EntityType="Self.serveeventfrom" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="serveeventrequirement" EntityType="Self.serveeventrequirement" Schema="fsll_feedback" store:Type="Tables" />
+    <EntitySet Name="vappeventconfig" EntityType="Self.vappeventconfig" store:Type="Views" store:Schema="fsll_feedback">
+      <DefiningQuery>SELECT
+`vappeventconfig`.`ID`, 
+`vappeventconfig`.`Name`, 
+`vappeventconfig`.`Value`, 
+`vappeventconfig`.`Description`, 
+`vappeventconfig`.`ValueType`, 
+`vappeventconfig`.`AppEventID`
+FROM `vappeventconfig` AS `vappeventconfig`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vappevents" EntityType="Self.vappevents" store:Type="Views" store:Schema="fsll_feedback">
+      <DefiningQuery>SELECT
+`vappevents`.`ID`, 
+`vappevents`.`EventTitle`, 
+`vappevents`.`StartTime`, 
+`vappevents`.`EndTime`, 
+`vappevents`.`EventDate`, 
+`vappevents`.`IsRepeatable`, 
+`vappevents`.`RepeatInterval`, 
+`vappevents`.`Description`
+FROM `vappevents` AS `vappevents`</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -506,5 +506,40 @@
             <param name="model"></param>
             <returns></returns>
         </member>
+        <member name="M:FSLL.MS.Core.Controllers.AccountController.ListAllMembers">
+            <summary>
+            List all church members
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FSLL.MS.Core.Controllers.AccountController.ListMemberOfGroup(System.Int32)">
+            <summary>
+            List all the members of a certain group
+            </summary>
+            <param name="groupid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSLL.MS.Core.Controllers.AccountController.ListMemberGroups(System.Int32)">
+            <summary>
+            List all the groups of a member
+            </summary>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSLL.MS.Core.Controllers.AccountController.IsInSameGroup(System.Int32,System.Int32)">
+            <summary>
+            Check whether members are from same cell group
+            </summary>
+            <param name="memberId1"></param>
+            <param name="memberId2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSLL.MS.Core.Controllers.AccountController.GetMember(System.Int32)">
+            <summary>
+            Get Member by ID
+            </summary>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="fsll_feedbackModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="app_requirementlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="RequirementTypeID" Type="int" />
+          <Property Name="RequirementTypeName" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="app_requirementtype">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RequirementType" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RequirementType" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="ParentRequirementID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="footprint">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActionType" Type="varchar" MaxLength="45" />
+          <Property Name="Action" Type="varchar" MaxLength="500" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="MemberName" Type="varchar" MaxLength="45" />
+          <Property Name="ActionDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="requirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="45" />
+          <Property Name="RequirementTypeName" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Remark" Type="varchar" MaxLength="45" />
+          <Property Name="MemberName" Type="varchar" MaxLength="45" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="GroupName" Type="varchar" MaxLength="45" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+          <Property Name="IsPrivate" Type="bit" />
+        </EntityType>
+        <EntityType Name="serveevent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="StartDateTime" Type="datetime" Precision="0" />
+          <Property Name="EndDateTime" Type="datetime" Precision="0" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="serveeventfeedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServeEventID" Type="int" />
+          <Property Name="TargetMemberName" Type="varchar" MaxLength="45" />
+          <Property Name="TargetMemberID" Type="int" />
+          <Property Name="FromMemberName" Type="varchar" MaxLength="45" />
+          <Property Name="FromMemberID" Type="int" />
+          <Property Name="Feedback" Type="varchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="serveeventfrom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServeEventID" Type="int" />
+          <Property Name="MemberName" Type="varchar" MaxLength="45" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="GroupName" Type="varchar" MaxLength="45" />
+          <Property Name="GroupID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <EntityType Name="serveeventrequirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServeEventID" Type="int" />
+          <Property Name="TargetMemberName" Type="varchar" MaxLength="45" />
+          <Property Name="TargetMemberID" Type="int" />
+          <Property Name="Requirement" Type="varchar" MaxLength="45" />
+          <Property Name="RequirementDescription" Type="varchar" MaxLength="500" />
+          <Property Name="RequirementID" Type="int" />
+          <Property Name="TargetMemberGroupName" Type="varchar" MaxLength="45" />
+          <Property Name="TargetMemberGroupID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
+          <Property Name="CreatedDate" Type="datetime" Precision="0" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_feedback.vappeventconfig' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vappeventconfig">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="AppEventID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="Value" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="ValueType" Type="varchar" MaxLength="45" />
+          <Property Name="AppEventID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_feedback.vappevents' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vappevents">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EventTitle" />
+            <PropertyRef Name="EventDate" />
+            <PropertyRef Name="IsRepeatable" />
+            <PropertyRef Name="RepeatInterval" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EventTitle" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="StartTime" Type="time" Precision="0" />
+          <Property Name="EndTime" Type="time" Precision="0" />
+          <Property Name="EventDate" Type="date" Nullable="false" />
+          <Property Name="IsRepeatable" Type="bit" Nullable="false" />
+          <Property Name="RepeatInterval" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityContainer Name="fsll_feedbackModelStoreContainer">
+          <EntitySet Name="app_requirementlist" EntityType="Self.app_requirementlist" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="app_requirementtype" EntityType="Self.app_requirementtype" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="footprint" EntityType="Self.footprint" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="requirement" EntityType="Self.requirement" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="serveevent" EntityType="Self.serveevent" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="serveeventfeedback" EntityType="Self.serveeventfeedback" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="serveeventfrom" EntityType="Self.serveeventfrom" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="serveeventrequirement" EntityType="Self.serveeventrequirement" Schema="fsll_feedback" store:Type="Tables" />
+          <EntitySet Name="vappeventconfig" EntityType="Self.vappeventconfig" store:Type="Views" store:Schema="fsll_feedback">
+            <DefiningQuery>SELECT
+`vappeventconfig`.`ID`, 
+`vappeventconfig`.`Name`, 
+`vappeventconfig`.`Value`, 
+`vappeventconfig`.`Description`, 
+`vappeventconfig`.`ValueType`, 
+`vappeventconfig`.`AppEventID`
+FROM `vappeventconfig` AS `vappeventconfig`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vappevents" EntityType="Self.vappevents" store:Type="Views" store:Schema="fsll_feedback">
+            <DefiningQuery>SELECT
+`vappevents`.`ID`, 
+`vappevents`.`EventTitle`, 
+`vappevents`.`StartTime`, 
+`vappevents`.`EndTime`, 
+`vappevents`.`EventDate`, 
+`vappevents`.`IsRepeatable`, 
+`vappevents`.`RepeatInterval`, 
+`vappevents`.`Description`
+FROM `vappevents` AS `vappevents`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fsll_feedbackModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="fsll_feedbackEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="app_requirementlist" EntityType="fsll_feedbackModel.app_requirementlist" />
+          <EntitySet Name="app_requirementtype" EntityType="fsll_feedbackModel.app_requirementtype" />
+          <EntitySet Name="footprints" EntityType="fsll_feedbackModel.footprint" />
+          <EntitySet Name="requirements" EntityType="fsll_feedbackModel.requirement" />
+          <EntitySet Name="serveevents" EntityType="fsll_feedbackModel.serveevent" />
+          <EntitySet Name="serveeventfeedbacks" EntityType="fsll_feedbackModel.serveeventfeedback" />
+          <EntitySet Name="serveeventfroms" EntityType="fsll_feedbackModel.serveeventfrom" />
+          <EntitySet Name="serveeventrequirements" EntityType="fsll_feedbackModel.serveeventrequirement" />
+          <EntitySet Name="vappevents" EntityType="fsll_feedbackModel.vappevent" />
+          <EntitySet Name="vappeventconfigs" EntityType="fsll_feedbackModel.vappeventconfig" />
+        </EntityContainer>
+        <EntityType Name="app_requirementlist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RequirementTypeID" Type="Int32" />
+          <Property Name="RequirementTypeName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="app_requirementtype">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="RequirementType" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RequirementType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ParentRequirementID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="footprint">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActionType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Action" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ActionDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="requirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RequirementTypeName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StartDate" Type="DateTime" />
+          <Property Name="EndDate" Type="DateTime" />
+          <Property Name="Remark" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+          <Property Name="IsPrivate" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="serveevent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="StartDateTime" Type="DateTime" />
+          <Property Name="EndDateTime" Type="DateTime" />
+          <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="serveeventfeedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServeEventID" Type="Int32" />
+          <Property Name="TargetMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="TargetMemberID" Type="Int32" />
+          <Property Name="FromMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FromMemberID" Type="Int32" />
+          <Property Name="Feedback" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="serveeventfrom">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServeEventID" Type="Int32" />
+          <Property Name="MemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="GroupID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="serveeventrequirement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServeEventID" Type="Int32" />
+          <Property Name="TargetMemberName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="TargetMemberID" Type="Int32" />
+          <Property Name="Requirement" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="RequirementDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="RequirementID" Type="Int32" />
+          <Property Name="TargetMemberGroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="TargetMemberGroupID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="vappevent">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="EventTitle" />
+            <PropertyRef Name="EventDate" />
+            <PropertyRef Name="IsRepeatable" />
+            <PropertyRef Name="RepeatInterval" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EventTitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="StartTime" Type="Time" />
+          <Property Name="EndTime" Type="Time" />
+          <Property Name="EventDate" Type="DateTime" Nullable="false" />
+          <Property Name="IsRepeatable" Type="Boolean" Nullable="false" />
+          <Property Name="RepeatInterval" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vappeventconfig">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="AppEventID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ValueType" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="AppEventID" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fsll_feedbackModelStoreContainer" CdmEntityContainer="fsll_feedbackEntities">
+        <EntitySetMapping Name="app_requirementlist">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.app_requirementlist">
+              <MappingFragment StoreEntitySet="app_requirementlist">
+                <ScalarProperty Name="RequirementTypeName" ColumnName="RequirementTypeName" />
+                <ScalarProperty Name="RequirementTypeID" ColumnName="RequirementTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="app_requirementtype">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.app_requirementtype">
+              <MappingFragment StoreEntitySet="app_requirementtype">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ParentRequirementID" ColumnName="ParentRequirementID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RequirementType" ColumnName="RequirementType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="footprints">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.footprint">
+              <MappingFragment StoreEntitySet="footprint">
+                <ScalarProperty Name="ActionDate" ColumnName="ActionDate" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="ActionType" ColumnName="ActionType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requirements">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.requirement">
+              <MappingFragment StoreEntitySet="requirement">
+                <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RequirementTypeName" ColumnName="RequirementTypeName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="serveevents">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.serveevent">
+              <MappingFragment StoreEntitySet="serveevent">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="serveeventfeedbacks">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.serveeventfeedback">
+              <MappingFragment StoreEntitySet="serveeventfeedback">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Feedback" ColumnName="Feedback" />
+                <ScalarProperty Name="FromMemberID" ColumnName="FromMemberID" />
+                <ScalarProperty Name="FromMemberName" ColumnName="FromMemberName" />
+                <ScalarProperty Name="TargetMemberID" ColumnName="TargetMemberID" />
+                <ScalarProperty Name="TargetMemberName" ColumnName="TargetMemberName" />
+                <ScalarProperty Name="ServeEventID" ColumnName="ServeEventID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="serveeventfroms">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.serveeventfrom">
+              <MappingFragment StoreEntitySet="serveeventfrom">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+                <ScalarProperty Name="ServeEventID" ColumnName="ServeEventID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="serveeventrequirements">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.serveeventrequirement">
+              <MappingFragment StoreEntitySet="serveeventrequirement">
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="TargetMemberGroupID" ColumnName="TargetMemberGroupID" />
+                <ScalarProperty Name="TargetMemberGroupName" ColumnName="TargetMemberGroupName" />
+                <ScalarProperty Name="RequirementID" ColumnName="RequirementID" />
+                <ScalarProperty Name="RequirementDescription" ColumnName="RequirementDescription" />
+                <ScalarProperty Name="Requirement" ColumnName="Requirement" />
+                <ScalarProperty Name="TargetMemberID" ColumnName="TargetMemberID" />
+                <ScalarProperty Name="TargetMemberName" ColumnName="TargetMemberName" />
+                <ScalarProperty Name="ServeEventID" ColumnName="ServeEventID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vappevents">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.vappevent">
+              <MappingFragment StoreEntitySet="vappevents">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="RepeatInterval" ColumnName="RepeatInterval" />
+                <ScalarProperty Name="IsRepeatable" ColumnName="IsRepeatable" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vappeventconfigs">
+            <EntityTypeMapping TypeName="fsll_feedbackModel.vappeventconfig">
+              <MappingFragment StoreEntitySet="vappeventconfig">
+                <ScalarProperty Name="AppEventID" ColumnName="AppEventID" />
+                <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

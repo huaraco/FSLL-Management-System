@@ -19,5 +19,8 @@ namespace FSLL.MS.Core.DAL
         public Nullable<System.DateTime> JointDate { get; set; }
         public string RolesID { get; set; }
         public string Roles { get; set; }
+        public string GroupName { get; set; }
+        public int GroupTypeID { get; set; }
+        public string GroupType { get; set; }
     }
 }

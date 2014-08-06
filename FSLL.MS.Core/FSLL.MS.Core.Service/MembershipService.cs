@@ -1,5 +1,6 @@
 ﻿using FSLL.MS.Core.DAL;
 using FSLL.MS.Core.Service.Caching;
+using FSLL.MS.Core.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace FSLL.MS.Core.Service
 {
-    public class MemberService : BaseService
+    public class MemberService : BaseService, IMembershipService
     {
         private IRepository<userlogin> _loginRepo = null;
         private IRepository<vmember> _memberRepo = null;
@@ -116,6 +117,51 @@ namespace FSLL.MS.Core.Service
             }
 
             return false;
+        }
+
+
+        public IList<vmember> ListAllMembers()
+        {
+            return _memberRepo.All().ToList();
+        }
+
+        public IList<vmember> ListMembersByGroup(int groupId)
+        {
+            var q = from m in _fsllDB.vmembers
+                    from g in _fsllDB.vmemberingroups
+                    where g.ChurchMemberID == m.ID && g.GroupID == groupId
+                    select m;
+
+            return q.ToList();
+        }
+
+
+        public IList<vmemberingroup> ListMemberGroups(int memberId)
+        {
+            return _memberGroupRepo.Filter(c => c.ChurchMemberID == memberId).ToList();
+        }
+
+        /// <summary>
+        /// Check whether Members are in the same group 
+        /// </summary>
+        /// <param name="memberId1">1st Member ID</param>
+        /// <param name="memberId2">2nd Member ID</param>
+        /// <returns></returns>
+        public bool IsInSameGroup(int memberId1, int memberId2)
+        {
+            var cellGroups = _memberGroupRepo.Filter(c => c.GroupTypeID == (int)ChurchGroupTypeEnum.CellGroup).ToList();
+            var group1 = cellGroups.Where(c => c.ChurchMemberID == memberId1).Select(c => c.GroupID);
+            var group2 = cellGroups.Where(c => c.ChurchMemberID == memberId2).Select(c => c.GroupID);
+            if (group1.Intersect(group2).Count() > 0)
+                return true;
+
+            return false;
+        }
+
+
+        public vmember GetMember(int memberId)
+        {
+            return _memberRepo.Find(memberId);
         }
     }
 }

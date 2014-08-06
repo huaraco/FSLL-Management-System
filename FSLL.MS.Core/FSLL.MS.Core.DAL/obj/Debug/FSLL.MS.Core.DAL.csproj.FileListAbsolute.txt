@@ -26,6 +26,6 @@ D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Debug\
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Debug\mysql.data.entity.EF6.dll
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Debug\EntityFramework.xml
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\bin\Debug\EntityFramework.SqlServer.xml
-D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Debug\FSLL.MS.Core.DAL.csprojResolveAssemblyReference.cache
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Debug\FSLL.MS.Core.DAL.dll
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Debug\FSLL.MS.Core.DAL.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core.DAL\obj\Debug\FSLL.MS.Core.DAL.csprojResolveAssemblyReference.cache

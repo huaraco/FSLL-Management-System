@@ -13,7 +13,7 @@ namespace FSLLProxies.Core
 {
     public partial class Configuration
 	{
-		public const string FSLLCoreApiProxyBaseAddress = "http://localhost/fsllcore/";
+		public const string FSLLCoreApiProxyBaseAddress = "http://fsll.dyndns.org/fsll_ms_core/";
 		
 	}
 }
@@ -44,6 +44,7 @@ namespace FSLLProxies.Core.Models
 		public virtual String Email { get; set; }
 		public virtual String EnglishName { get; set; }
 		public virtual String AbstractName { get; set; }
+		public virtual GroupModel DefaultGroup { get; set; }
 		public virtual IList<GroupModel> Groups { get; set; }
 	}
 	#endregion
@@ -234,7 +235,7 @@ namespace FSLLProxies.Core.Clients
 		}
 
         /// <summary>
-        /// Get Member by ID
+        /// 
         /// </summary>
 				/// <param name="memberId"></param>
 		        /// <returns></returns>
@@ -244,7 +245,7 @@ namespace FSLLProxies.Core.Clients
 		}
 
 		/// <summary>
-        /// Get Member by ID
+        /// 
         /// </summary>
 				/// <param name="memberId"></param>
 			
@@ -252,147 +253,6 @@ namespace FSLLProxies.Core.Clients
 		public virtual HttpResponseMessage GetMember(Int32 memberId)
 		{
 			return HttpClient.GetAsync("api/Account/GetMember?memberId=" + memberId).Result;
-		}
-
-		#endregion
-
-		public void Dispose()
-        {
-            HttpClient.Dispose();
-        }
-	}
-
-}
-namespace FSLLProxies.Core.Clients
-{
-	using FSLLProxies.Core.Models;
-	public partial class ValuesClient : IDisposable
-	{
-
-		public HttpClient HttpClient { get; private set; }
-
-		/// <summary>
-        /// 
-        /// </summary>
-		public ValuesClient()
-		{
-			HttpClient = new HttpClient()
-			{
-				BaseAddress = new Uri(Configuration.FSLLCoreApiProxyBaseAddress)
-			};
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-		public ValuesClient(HttpMessageHandler handler, bool disposeHandler = true)
-		{
-			HttpClient = new HttpClient(handler, disposeHandler)
-			{
-				BaseAddress = new Uri(Configuration.FSLLCoreApiProxyBaseAddress)
-			};
-		}
-
-		#region Methods
-        /// <summary>
-        /// 
-        /// </summary>
-		        /// <returns></returns>
-		public virtual async Task<HttpResponseMessage> GetAsync()
-		{
-			return await HttpClient.GetAsync("api/Values/Get");
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-			
-        /// <returns></returns>
-		public virtual HttpResponseMessage Get()
-		{
-			return HttpClient.GetAsync("api/Values/Get").Result;
-		}
-
-        /// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-		        /// <returns></returns>
-		public virtual async Task<HttpResponseMessage> GetAsync(Int32 id)
-		{
-			return await HttpClient.GetAsync("api/Values/Get/" + id);
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-			
-        /// <returns></returns>
-		public virtual HttpResponseMessage Get(Int32 id)
-		{
-			return HttpClient.GetAsync("api/Values/Get/" + id).Result;
-		}
-
-        /// <summary>
-        /// 
-        /// </summary>
-		        /// <returns></returns>
-		public virtual async Task<HttpResponseMessage> PostAsync(String value)
-		{
-			return await HttpClient.PostAsJsonAsync<String>("api/Values/Post", value);
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-			
-        /// <returns></returns>
-		public virtual HttpResponseMessage Post(String value)
-		{
-			return HttpClient.PostAsJsonAsync<String>("api/Values/Post", value).Result;
-		}
-
-        /// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-		        /// <returns></returns>
-		public virtual async Task<HttpResponseMessage> PutAsync(Int32 id,String value)
-		{
-			return await HttpClient.PutAsJsonAsync<String>("api/Values/Put/" + id, value);
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-			
-        /// <returns></returns>
-		public virtual HttpResponseMessage Put(Int32 id,String value)
-		{
-			return HttpClient.PutAsJsonAsync<String>("api/Values/Put/" + id, value).Result;
-		}
-
-        /// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-		        /// <returns></returns>
-		public virtual async Task<HttpResponseMessage> DeleteAsync(Int32 id)
-		{
-			return await HttpClient.DeleteAsync("api/Values/Delete/" + id);
-		}
-
-		/// <summary>
-        /// 
-        /// </summary>
-				/// <param name="id"></param>
-			
-        /// <returns></returns>
-		public virtual HttpResponseMessage Delete(Int32 id)
-		{
-			return HttpClient.DeleteAsync("api/Values/Delete/" + id).Result;
 		}
 
 		#endregion

@@ -12,7 +12,7 @@ namespace FSLL.MS.Core.Models
         public string Email { get; set; }
         public string EnglishName { get; set; }
         public string AbstractName { get; set; }
-
+        public GroupModel DefaultGroup { get; set; }
         public IList<GroupModel> Groups { get; set; }
     }
 
@@ -29,7 +29,7 @@ namespace FSLL.MS.Core.Models
     public class LoginModel
     {
         public string MembershipNo { get; set; }
-        public string Password{ get; set; }
+        public string Password { get; set; }
         public bool IsRemeberMe { get; set; }
     }
 
@@ -41,5 +41,5 @@ namespace FSLL.MS.Core.Models
     }
 
 
-    
+
 }

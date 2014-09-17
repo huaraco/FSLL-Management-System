@@ -207,7 +207,6 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="CorsHandler.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -356,6 +355,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FSLL.MS.Core.Common\FSLL.MS.Core.Common.csproj">
+      <Project>{2b961d97-23f4-41d5-97f8-2dff7dfea158}</Project>
+      <Name>FSLL.MS.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FSLL.MS.Core.DAL\FSLL.MS.Core.DAL.csproj">
       <Project>{e0f58f23-372c-4062-a3cc-3f053a54e465}</Project>
       <Name>FSLL.MS.Core.DAL</Name>

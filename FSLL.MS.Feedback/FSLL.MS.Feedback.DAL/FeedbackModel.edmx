@@ -56,6 +56,7 @@
           <Property Name="CreatedBy" Type="varchar" MaxLength="45" />
           <Property Name="CreatedDate" Type="datetime" Precision="0" />
           <Property Name="IsPrivate" Type="bit" />
+          <Property Name="Status" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="serveevent">
           <Key>
@@ -244,6 +245,7 @@ FROM `vappevents` AS `vappevents`</DefiningQuery>
           <Property Name="CreatedBy" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="CreatedDate" Type="DateTime" />
           <Property Name="IsPrivate" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="serveevent">
           <Key>
@@ -373,6 +375,7 @@ FROM `vappevents` AS `vappevents`</DefiningQuery>
           <EntitySetMapping Name="requirements">
             <EntityTypeMapping TypeName="fsll_feedbackModel.requirement">
               <MappingFragment StoreEntitySet="requirement">
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="IsPrivate" ColumnName="IsPrivate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
@@ -492,6 +495,7 @@ FROM `vappevents` AS `vappevents`</DefiningQuery>
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="DDLGenerationTemplate" Value="$(VSEFTools)\DBGen\SSDLToMySQL.tt" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->

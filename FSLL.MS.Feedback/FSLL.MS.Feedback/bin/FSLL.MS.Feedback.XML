@@ -481,24 +481,6 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:FSLL.MS.Feedback.Controllers.AccountController.Login(FSLL.MS.Feedback.Models.LoginViewModel)">
-            <summary>
-            Login
-            </summary>
-            <param name="model"></param>
-            <returns>Member Id</returns>
-        </member>
-        <member name="M:FSLL.MS.Feedback.Controllers.AccountController.TestLogin">
-            <summary>
-            Test Authorization
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:FSLL.MS.Feedback.Controllers.AccountController.Logout">
-            <summary>
-            Log out
-            </summary>
-        </member>
         <member name="M:FSLL.MS.Feedback.Controllers.RequirementController.ListMemberRequirements(System.Int32)">
             <summary>
             Get the requirments of a member
@@ -506,24 +488,21 @@
             <param name="memberId">member id</param>
             <returns>the requirment list</returns>
         </member>
+        <member name="M:FSLL.MS.Feedback.Controllers.ServeEventController.ListTodayEvent">
+            <summary>
+            Get the most matched Event Title
+            </summary>
+            <returns>Event title or Current Date</returns>
+        </member>
+        <member name="M:FSLL.MS.Feedback.Controllers.ServeEventController.NewServeEvent(FSLL.MS.Feedback.Models.NewServeEventModel)">
+            <summary>
+            Create New Serve Event with requirement
+            </summary>
+            <param name="model"></param>
+        </member>
         <member name="T:FSLL.MS.Feedback.Models.RequirementBasicModel">
             <summary>
-            Basic Member Requirement Infomation
-            </summary>
-        </member>
-        <member name="P:FSLL.MS.Feedback.Models.RequirementBasicModel.ID">
-            <summary>
-            Requirement ID
-            </summary>
-        </member>
-        <member name="P:FSLL.MS.Feedback.Models.RequirementBasicModel.Title">
-            <summary>
-            Requirement Title
-            </summary>
-        </member>
-        <member name="P:FSLL.MS.Feedback.Models.RequirementBasicModel.RequirementTypeName">
-            <summary>
-            Requirment Type
+            Basic requirement infomation with member information
             </summary>
         </member>
     </members>

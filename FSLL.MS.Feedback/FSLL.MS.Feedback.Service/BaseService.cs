@@ -21,5 +21,7 @@ namespace FSLL.MS.Feedback.Service
             }
 
         }
+
+        protected int _memberID { get; set; }
     }
 }

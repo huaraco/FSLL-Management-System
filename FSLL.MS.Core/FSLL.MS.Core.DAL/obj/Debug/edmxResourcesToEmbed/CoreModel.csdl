@@ -16,6 +16,11 @@
     <Property Name="Name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="MembershipNo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="AbbrName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="BOD" Type="DateTime" />
+    <Property Name="JointDate" Type="DateTime" />
+    <Property Name="LeaveDate" Type="DateTime" />
+    <Property Name="EnglishName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="vrole">
     <Key>

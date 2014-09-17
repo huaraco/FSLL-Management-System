@@ -17,9 +17,12 @@ namespace FSLL.MS.Feedback.Common.Extensions
 
         public static async Task<T> ToResult<T>(this Task<HttpResponseMessage> task)
         {
+            
             var response = await task;
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsAsync<T>();
         }
+
+        
     }
 }

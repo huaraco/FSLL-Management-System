@@ -1,4 +1,5 @@
-﻿using FSLL.MS.Core.DAL;
+﻿using FSLL.MS.Core.Common;
+using FSLL.MS.Core.DAL;
 using FSLL.MS.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,9 @@ namespace FSLL.MS.Core.ModelExtensions
             {
                 Email = entity.Email,
                 MemberID = entity.ID,
-                MemberName = entity.Name
+                MemberName = entity.Name,
+                EnglishName = entity.EnglishName,
+                AbstractName = entity.AbbrName
             };
 
             return model;
@@ -34,13 +37,9 @@ namespace FSLL.MS.Core.ModelExtensions
                 groups.Add(g.ToGroupModel());
             }
 
-            var model = new MemberModel()
-            {
-                Email = entity.Email,
-                MemberID = entity.ID,
-                MemberName = entity.Name,
-                Groups = groups
-            };
+            var model = entity.ToMemberModel();
+            model.Groups = groups;
+            model.DefaultGroup = groups.Find(c => c.GroupTypeName == EnumHelper.GetDescription(ChurchGroupTypeEnum.CellGroup));
 
             return model;
         }

@@ -12,5 +12,12 @@ namespace FSLL.MS.Feedback.Service
         IList<requirement> ListMemberRequirement(int memberId);
         IList<requirement> ListMemberRequirement(string memberName);
 
+        IList<app_requirementlist> ListDefaultRequirements();
+
+        bool UpdateMemberRequirements(IList<requirement> requirements);
+        requirement UpdateMemberRequirement(requirement req);
+        requirement NewMemberRequirement(requirement req);
+        bool DeleteMemberRequirement(int reqId);
+        bool DeleteMemberAllRequirements(int memberId);
     }
 }

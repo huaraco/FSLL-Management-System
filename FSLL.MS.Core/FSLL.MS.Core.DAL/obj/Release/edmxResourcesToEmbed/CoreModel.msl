@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="fsll_coreModelStoreContainer" CdmEntityContainer="fsll_coreEntities">
     <EntitySetMapping Name="userlogins">
       <EntityTypeMapping TypeName="fsll_coreModel.userlogin">
@@ -13,6 +13,11 @@
     <EntitySetMapping Name="vmembers">
       <EntityTypeMapping TypeName="fsll_coreModel.vmember">
         <MappingFragment StoreEntitySet="vmember">
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="JointDate" ColumnName="JointDate" />
+          <ScalarProperty Name="BOD" ColumnName="BOD" />
+          <ScalarProperty Name="AbbrName" ColumnName="AbbrName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
@@ -32,6 +37,9 @@
     <EntitySetMapping Name="vmemberingroups">
       <EntityTypeMapping TypeName="fsll_coreModel.vmemberingroup">
         <MappingFragment StoreEntitySet="vmemberingroup">
+          <ScalarProperty Name="GroupType" ColumnName="GroupType" />
+          <ScalarProperty Name="GroupTypeID" ColumnName="GroupTypeID" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="Roles" ColumnName="Roles" />
           <ScalarProperty Name="RolesID" ColumnName="RolesID" />
           <ScalarProperty Name="JointDate" ColumnName="JointDate" />

@@ -13,6 +13,11 @@
     <EntitySetMapping Name="vmembers">
       <EntityTypeMapping TypeName="fsll_coreModel.vmember">
         <MappingFragment StoreEntitySet="vmember">
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+          <ScalarProperty Name="JointDate" ColumnName="JointDate" />
+          <ScalarProperty Name="BOD" ColumnName="BOD" />
+          <ScalarProperty Name="AbbrName" ColumnName="AbbrName" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Email" ColumnName="Email" />

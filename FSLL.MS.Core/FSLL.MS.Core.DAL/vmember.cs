@@ -18,5 +18,10 @@ namespace FSLL.MS.Core.DAL
         public string Name { get; set; }
         public string Email { get; set; }
         public string MembershipNo { get; set; }
+        public string AbbrName { get; set; }
+        public Nullable<System.DateTime> BOD { get; set; }
+        public Nullable<System.DateTime> JointDate { get; set; }
+        public Nullable<System.DateTime> LeaveDate { get; set; }
+        public string EnglishName { get; set; }
     }
 }

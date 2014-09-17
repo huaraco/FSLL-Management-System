@@ -105,7 +105,7 @@ namespace FSLL.MS.Feedback.DAL
         {
             var entry = Context.Entry(TObject);
             DbSet.Attach(TObject);
-            entry.State = System.Data.EntityState.Modified;
+            entry.State = EntityState.Modified;
             return !_Shared ? Context.SaveChanges() : 0;
         }
 

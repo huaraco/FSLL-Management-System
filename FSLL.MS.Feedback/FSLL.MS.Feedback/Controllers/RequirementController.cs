@@ -20,8 +20,15 @@ namespace FSLL.MS.Feedback.Controllers
         /// <param name="memberId">member id</param>
         /// <returns>the requirment list</returns>
         [HttpGet]
-        public IEnumerable<RequirementBasicModel> ListMemberRequirements(int memberId){
-            return _reqService.ListMemberRequirement(memberId).Select(c=>c.ToRequirementBasicModel());
+        public IEnumerable<FSLL.MS.Feedback.Models.RequirementModel> ListMemberRequirements(int memberId)
+        {
+            return _reqService.ListMemberRequirement(memberId).Select(c=>c.To_RequirementModel());
+        }
+
+        [HttpGet]
+        public IEnumerable<DefaultRequirementModel> ListDefaultRequirements()
+        {
+            return _reqService.ListDefaultRequirements().Select(c => c.ToDefaultRequirementModel());
         }
     }
 }

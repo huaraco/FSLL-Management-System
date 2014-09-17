@@ -261,3 +261,5 @@ D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\obj\Debug\FSLL
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\obj\Debug\FSLL.MS.Core.csprojResolveAssemblyReference.cache
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\obj\Debug\FSLL.MS.Core.dll
 D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\obj\Debug\FSLL.MS.Core.pdb
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\bin\FSLL.MS.Core.Common.dll
+D:\zunhua\GitHub\FSLL-Management-System\FSLL.MS.Core\FSLL.MS.Core\bin\FSLL.MS.Core.Common.pdb

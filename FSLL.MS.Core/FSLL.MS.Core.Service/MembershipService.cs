@@ -120,12 +120,12 @@ namespace FSLL.MS.Core.Service
         }
 
 
-        public IList<vmember> ListAllMembers()
+        public IList<vmember> ListMembers()
         {
             return _memberRepo.All().ToList();
         }
 
-        public IList<vmember> ListMembersByGroup(int groupId)
+        public IList<vmember> ListMembers(int groupId)
         {
             var q = from m in _fsllDB.vmembers
                     from g in _fsllDB.vmemberingroups
@@ -162,6 +162,11 @@ namespace FSLL.MS.Core.Service
         public vmember GetMember(int memberId)
         {
             return _memberRepo.Find(memberId);
+        }
+
+        public IEnumerable<vmember> GetMember(string name)
+        {
+            return _memberRepo.Filter(c => c.Name == name);
         }
     }
 }

@@ -9,8 +9,8 @@ namespace FSLL.MS.Feedback.Service
 {
     public interface IRequirementService
     {
-        IList<requirement> ListMemberRequirement(int memberId);
-        IList<requirement> ListMemberRequirement(string memberName);
+        IList<requirement> ListMemberRequirements(int memberId);
+        IList<requirement> ListMemberRequirements(string memberName);
 
         IList<app_requirementlist> ListDefaultRequirements();
 

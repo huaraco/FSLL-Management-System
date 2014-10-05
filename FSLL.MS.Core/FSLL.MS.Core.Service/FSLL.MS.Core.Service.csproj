@@ -50,6 +50,7 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="GroupService.cs" />
     <Compile Include="IMembershipService.cs" />
     <Compile Include="MembershipService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

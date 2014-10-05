@@ -22,6 +22,16 @@ namespace FSLL.MS.Feedback.Service
 
         }
 
+        public BaseService()
+        {
+
+        }
+
+        public BaseService(int memberId)
+        {
+            this._memberID = memberId;
+        }
+
         protected int _memberID { get; set; }
     }
 }

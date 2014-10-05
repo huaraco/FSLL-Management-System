@@ -22,7 +22,7 @@ namespace FSLL.MS.Feedback.Controllers
         [HttpGet]
         public IEnumerable<FSLL.MS.Feedback.Models.RequirementModel> ListMemberRequirements(int memberId)
         {
-            return _reqService.ListMemberRequirement(memberId).Select(c=>c.To_RequirementModel());
+            return _reqService.ListMemberRequirements(memberId).Select(c=>c.To_RequirementModel());
         }
 
         [HttpGet]

@@ -19,9 +19,9 @@ namespace FSLL.MS.Core.Service
 
         vmember GetMember(int memberId);
 
-        IList<vmember> ListAllMembers();
+        IList<vmember> ListMembers();
 
-        IList<vmember> ListMembersByGroup(int groupId);
+        IList<vmember> ListMembers(int groupId);
         
         IList<vmemberingroup> ListMemberGroups(int memberId);
         

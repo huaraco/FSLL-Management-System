@@ -68,7 +68,7 @@ namespace FSLL.MS.Core.Controllers
         [HttpGet]
         public IEnumerable<MemberModel> ListAllMembers()
         {
-            return _memberService.ListAllMembers().Select(c => c.ToMemberModel());
+            return _memberService.ListMembers().Select(c => c.ToMemberModel());
         }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace FSLL.MS.Core.Controllers
         [HttpGet]
         public IEnumerable<MemberModel> ListMemberOfGroup(int groupid)
         {
-            return _memberService.ListMembersByGroup(groupid).Select(c => c.ToMemberModel());
+            return _memberService.ListMembers(groupid).Select(c => c.ToMemberModel());
         }
 
         /// <summary>

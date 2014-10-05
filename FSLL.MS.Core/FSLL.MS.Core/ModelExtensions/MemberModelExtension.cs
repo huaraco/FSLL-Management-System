@@ -30,16 +30,16 @@ namespace FSLL.MS.Core.ModelExtensions
         {
             if (entity == null) return null;
 
-            var groups = new List<GroupModel>();
+            //var groups = new List<GroupModel>();
 
-            foreach (var g in groupEntities)
-            {
-                groups.Add(g.ToGroupModel());
-            }
+            //foreach (var g in groupEntities)
+            //{
+            //    groups.Add(g.ToGroupModel());
+            //}
 
             var model = entity.ToMemberModel();
-            model.Groups = groups;
-            model.DefaultGroup = groups.Find(c => c.GroupTypeName == EnumHelper.GetDescription(ChurchGroupTypeEnum.CellGroup));
+            //model.Groups = groups;
+            //model.DefaultGroup = groups.Find(c => c.GroupTypeName == EnumHelper.GetDescription(ChurchGroupTypeEnum.CellGroup));
 
             return model;
         }

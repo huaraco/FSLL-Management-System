@@ -122,7 +122,7 @@ namespace FSLL.MS.Feedback.Controllers
                 var eventFrom = new serveeventfrom();
                 eventFrom.ServeEventID = eventID;
 
-                if (f.Type == ServeEventMemberType.SERVE_EVENT_MEMBER_TYPE_GROUP)
+                if (f.Type == FeedbackConstants.SERVE_EVENT_MEMBER_TYPE_GROUP)
                 {
                     eventFrom.GroupID = f.ID;
                     eventFrom.GroupName = f.Name;

@@ -486,12 +486,7 @@
             Account Controller
             </summary>
         </member>
-        <member name="M:FSLL.MS.Core.Controllers.AccountController.Test">
-            <summary>
-            Test
-            </summary>
-            <returns></returns>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:FSLL.MS.Core.Controllers.AccountController.Test" -->
         <member name="M:FSLL.MS.Core.Controllers.AccountController.Login(FSLL.MS.Core.Models.LoginModel)">
             <summary>
             Login
@@ -539,6 +534,13 @@
             Get Member by ID
             </summary>
             <param name="memberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FSLL.MS.Core.Controllers.MemberController.GetMember(System.String)">
+            <summary>
+            Get Member By Name, if more than one member has the same name, will return null
+            </summary>
+            <param name="name"></param>
             <returns></returns>
         </member>
     </members>

@@ -18,7 +18,7 @@ namespace FSLL.MS.Core.Controllers
             _memberService = new MemberService();
         }
 
-        public MemberModel GetMember(int id)
+        public dynamic GetMember(int id)
         {
             return _memberService.GetMember(id).ToMemberModel();
         }
@@ -28,15 +28,15 @@ namespace FSLL.MS.Core.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public MemberModel GetMember(string name)
+        public dynamic GetMember(string name)
         {
             try
             {
                 var members = _memberService.GetMember(name).Select(c => c.ToMemberModel());
-                if (members.Count() == 1)
-                    return members.First();
+                //if (members.Count() == 1)
+                //    return members.First();
 
-                return null;
+                return members;
             }
             catch
             {
@@ -44,12 +44,12 @@ namespace FSLL.MS.Core.Controllers
             }
         }
 
-        public IEnumerable<MemberModel> ListMembers()
+        public dynamic ListMembers()
         {
             return _memberService.ListMembers().Select(c=>c.ToMemberModel());
         }
 
-        public IEnumerable<MemberModel> ListMembers(int groupID)
+        public dynamic ListMembers(int groupID)
         {
             return _memberService.ListMembers(groupID).Select(c => c.ToMemberModel());
         }

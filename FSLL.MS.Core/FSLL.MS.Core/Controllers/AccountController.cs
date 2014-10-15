@@ -22,7 +22,7 @@ namespace FSLL.MS.Core.Controllers
 
         /// <summary>
         /// Test
-        /// </summary>
+        /// </summar>
         /// <returns></returns>
         [HttpGet]
         public string Test()

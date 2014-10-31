@@ -10,7 +10,7 @@ namespace FSLL.MS.Feedback.ModelExtensions
 {
     public static class RequirementModelExtension
     {
-        public static requirement ToRequirementEntity(this RequirementModel model, MemberModel target)
+        public static requirement ToRequirementEntity(this RequirementModel model, int memberId, string memberName)
         {
 
             if (model == null) return null;
@@ -19,8 +19,8 @@ namespace FSLL.MS.Feedback.ModelExtensions
             {
                 ID = model.ID,
                 IsPrivate = model.IsPrivate,
-                MemberID = target.MemberID,
-                MemberName = target.MemberName,
+                MemberID = memberId,
+                MemberName = memberName,
                 RequirementTypeName = model.RequirementTypeName,
                 Status = model.Status,
                 Title = model.Title,
@@ -31,19 +31,20 @@ namespace FSLL.MS.Feedback.ModelExtensions
 
             return entity;
         }
-        public static RequirementModel To_RequirementModel(this requirement entity)
+        public static dynamic To_RequirementModel(this requirement entity)
         {
 
             if (entity == null) return null;
 
-            var model = new RequirementBasicModel()
+            var model = new 
             {
                 Description = entity.Description,
                 ID = entity.ID,
                 IsPrivate = entity.IsPrivate,
                 RequirementTypeName = entity.RequirementTypeName,
                 Title = entity.Title,
-                Status = entity.Status
+                Status = entity.Status,
+                Date = entity.StartDate
             };
 
             return model;
@@ -69,28 +70,6 @@ namespace FSLL.MS.Feedback.ModelExtensions
             };
 
             return model;
-        }
-
-        public static requirement ToRequirementEntity(this RequirementBasicModel model)
-        {
-
-            if (model == null) return null;
-
-            var entity = new requirement
-            {
-                ID = model.ID,
-                IsPrivate = model.IsPrivate,
-                MemberID = model.MemberID,
-                MemberName = model.MemberName,
-                RequirementTypeName = model.RequirementTypeName,
-                Status = model.Status,
-                Title = model.Title,
-                Description = model.Description,
-                GroupID = model.GroupID,
-                GroupName = model.GroupName
-            };
-
-            return entity;
         }
 
         public static RequirementDetailModel ToRequirementDetailModel(this requirement entity, MemberModel member, GroupModel group)
@@ -119,6 +98,42 @@ namespace FSLL.MS.Feedback.ModelExtensions
 
             return model;
         }
+
+        public static requirement ToRequirementEntity(this RequirementBasicModel model)
+        {
+
+            if (model == null) return null;
+
+            var entity = new requirement
+            {
+                ID = model.ID,
+                IsPrivate = model.IsPrivate,
+                MemberID = model.MemberID,
+                MemberName = model.MemberName,
+                RequirementTypeName = model.RequirementTypeName,
+                Status = model.Status,
+                Title = model.Title,
+                Description = model.Description,
+                GroupID = model.GroupID,
+                GroupName = model.GroupName
+            };
+
+            return entity;
+        }
+
+        public static requirement ToRequirementEntity(this RequirementDetailModel model)
+        {
+            if (model == null) return null;
+
+            var entity = ((RequirementBasicModel)model).ToRequirementEntity();
+            entity.StartDate = model.StartDate;
+            entity.Remark = model.Remark;
+            return entity;
+        }
+
+        
+
+
 
         public static DefaultRequirementModel ToDefaultRequirementModel(this app_requirementlist entity)
         {

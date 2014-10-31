@@ -23,10 +23,10 @@ namespace FSLL.MS.Feedback.Controllers
             //    ViewBag.Test = c;
             //}
             //System.Web.Configuration.WebConfigurationManager.AppSettings["FSLLCoreServiceURL"];
-            WebServiceManager _wsManager = new WebServiceManager("http://localhost/fsllCore");
-            var members = _wsManager.Get("/Member/GetMember?name=王尊华");
+            //WebServiceManager _wsManager = new WebServiceManager("http://localhost/fsllCore");
+            //var members = _wsManager.Get("/Member/GetMember?name=王尊华");
 
-            ViewBag.Test = members;
+            //ViewBag.Test = members;
 
             //RequirementService _service = new RequirementService();
             //ViewBag.Test = _service.ListMemberRequirements("王尊华");

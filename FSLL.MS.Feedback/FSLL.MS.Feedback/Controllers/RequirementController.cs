@@ -20,7 +20,7 @@ namespace FSLL.MS.Feedback.Controllers
         /// <param name="memberId">member id</param>
         /// <returns>the requirment list</returns>
         [HttpGet]
-        public IEnumerable<FSLL.MS.Feedback.Models.RequirementModel> ListMemberRequirements(int memberId)
+        public dynamic ListMemberRequirements(int memberId)
         {
             return _reqService.ListMemberRequirements(memberId).Select(c=>c.To_RequirementModel());
         }
@@ -29,6 +29,14 @@ namespace FSLL.MS.Feedback.Controllers
         public IEnumerable<DefaultRequirementModel> ListDefaultRequirements()
         {
             return _reqService.ListDefaultRequirements().Select(c => c.ToDefaultRequirementModel());
+        }
+
+        [HttpPost]
+        public void PostRequirement(RequirementDetailModel requirement)
+        {
+            requirement.Status = "pending";
+            var req = requirement.ToRequirementEntity();
+            _reqService.NewMemberRequirement(req);
         }
     }
 }

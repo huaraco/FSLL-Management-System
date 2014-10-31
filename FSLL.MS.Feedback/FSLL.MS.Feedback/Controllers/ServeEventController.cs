@@ -38,8 +38,6 @@ namespace FSLL.MS.Feedback.Controllers
                 return events.First().EventTitle;
             }
             return DateTime.Now.ToShortDateString();
-
-
         }
 
         /// <summary>
@@ -94,7 +92,7 @@ namespace FSLL.MS.Feedback.Controllers
         {
             foreach (var r in reqs)
             {
-                var req = r.ToRequirementEntity(member);
+                var req = r.ToRequirementEntity(member.MemberID, member.MemberName);
                 req.StartDate = DateTime.Now;
                 var entity = _reqService.UpdateMemberRequirement(req);
                 r.ID = entity.ID;

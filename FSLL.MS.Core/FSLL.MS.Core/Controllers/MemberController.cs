@@ -18,6 +18,7 @@ namespace FSLL.MS.Core.Controllers
             _memberService = new MemberService();
         }
 
+        [HttpGet]
         public dynamic GetMember(int id)
         {
             return _memberService.GetMember(id).ToMemberModel();
@@ -28,6 +29,7 @@ namespace FSLL.MS.Core.Controllers
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
+        [HttpGet]
         public dynamic GetMember(string name)
         {
             try
@@ -44,11 +46,19 @@ namespace FSLL.MS.Core.Controllers
             }
         }
 
+        [HttpGet]
         public dynamic ListMembers()
         {
-            return _memberService.ListMembers().Select(c=>c.ToMemberModel());
+            var members = _memberService.ListMembers().Select(c => c.ToMemberModel());
+            
+            foreach (var m in members)
+            {
+                    
+            }
+            return null;
         }
 
+        [HttpGet]
         public dynamic ListMembers(int groupID)
         {
             return _memberService.ListMembers(groupID).Select(c => c.ToMemberModel());

@@ -79,6 +79,9 @@
     <Compile Include="userlogin.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="vgroup.cs">
+      <DependentUpon>CoreModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="vmember.cs">
       <DependentUpon>CoreModel.tt</DependentUpon>
     </Compile>

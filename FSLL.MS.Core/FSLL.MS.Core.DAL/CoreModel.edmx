@@ -14,6 +14,20 @@
           <Property Name="lastloginon" Type="datetime" Precision="0" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'def.fsll_core.vgroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vgroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="45" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="ParentGroupName" Type="varchar" MaxLength="45" />
+          <Property Name="ParentGroupID" Type="int" />
+          <Property Name="GroupTypeName" Type="varchar" MaxLength="45" />
+          <Property Name="GroupTypeID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'def.fsll_core.vmember' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vmember">
           <Key>
@@ -60,6 +74,17 @@ warning 6002: The table/view 'def.fsll_core.vroles' does not have a primary key 
         </EntityType>
         <EntityContainer Name="fsll_coreModelStoreContainer">
           <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="fsll_core" store:Type="Tables" />
+          <EntitySet Name="vgroup" EntityType="Self.vgroup" store:Type="Views" store:Schema="fsll_core">
+            <DefiningQuery>SELECT
+`vgroup`.`ID`, 
+`vgroup`.`GroupName`, 
+`vgroup`.`Description`, 
+`vgroup`.`ParentGroupName`, 
+`vgroup`.`ParentGroupID`, 
+`vgroup`.`GroupTypeName`, 
+`vgroup`.`GroupTypeID`
+FROM `vgroup` AS `vgroup`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vmember" EntityType="Self.vmember" store:Type="Views" store:Schema="fsll_core">
             <DefiningQuery>SELECT
 `vmember`.`ID`, 
@@ -133,6 +158,7 @@ FROM `vroles` AS `vroles`</DefiningQuery>
           <EntitySet Name="vmembers" EntityType="Self.vmember" />
           <EntitySet Name="vroles" EntityType="Self.vrole" />
           <EntitySet Name="vmemberingroups" EntityType="fsll_coreModel.vmemberingroup" />
+          <EntitySet Name="vgroups" EntityType="fsll_coreModel.vgroup" />
         </EntityContainer>
         <EntityType Name="vmemberingroup">
           <Key>
@@ -149,6 +175,18 @@ FROM `vroles` AS `vroles`</DefiningQuery>
           <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="GroupTypeID" Type="Int32" Nullable="false" />
           <Property Name="GroupType" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vgroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ParentGroupName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="ParentGroupID" Type="Int32" />
+          <Property Name="GroupTypeName" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="GroupTypeID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -200,6 +238,19 @@ FROM `vroles` AS `vroles`</DefiningQuery>
                 <ScalarProperty Name="JointDate" ColumnName="JointDate" />
                 <ScalarProperty Name="GroupID" ColumnName="GroupID" />
                 <ScalarProperty Name="ChurchMemberID" ColumnName="ChurchMemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vgroups">
+            <EntityTypeMapping TypeName="fsll_coreModel.vgroup">
+              <MappingFragment StoreEntitySet="vgroup">
+                <ScalarProperty Name="GroupTypeID" ColumnName="GroupTypeID" />
+                <ScalarProperty Name="GroupTypeName" ColumnName="GroupTypeName" />
+                <ScalarProperty Name="ParentGroupID" ColumnName="ParentGroupID" />
+                <ScalarProperty Name="ParentGroupName" ColumnName="ParentGroupName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

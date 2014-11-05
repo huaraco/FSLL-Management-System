@@ -29,5 +29,6 @@ namespace FSLL.MS.Core.DAL
         public DbSet<vmember> vmembers { get; set; }
         public DbSet<vrole> vroles { get; set; }
         public DbSet<vmemberingroup> vmemberingroups { get; set; }
+        public DbSet<vgroup> vgroups { get; set; }
     }
 }
